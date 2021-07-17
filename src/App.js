@@ -1,24 +1,63 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useRef } from "react";
+import Header from "./Components/Header";
+import Home from "./Components/Home";
+import Footer from "./Components/Footer";
+import CheckOut from "./Components/CheckOut";
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import Login from "./Components/Login";
+import { auth } from "./firebase";
+import { useStateValue } from "./StateProvider";
+import Payment from "./Components/SubComponents/Payment";
+import Loading from "./Components/Loading";
+
+import Scrollbar from 'smooth-scrollbar';
 
 function App() {
+  const [state,dispatch] = useStateValue();
+  const Appref = useRef(null);
+  useEffect(() => {
+    auth.onAuthStateChanged(authUser =>{
+      console.log(`The user is`,authUser);
+      if(authUser){
+        //the user just loggedin or was logged in
+        dispatch({
+          type : 'SET_USER',
+          user : authUser,
+        })
+      }else{
+        //the user is logged out
+        dispatch({
+          type : 'SET_USER',
+          user : null,
+        })
+      }
+    })
+  }, [])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+        <div className="App">
+          <Switch>
+            <Route path='/login'>
+              <Login />
+            </Route>
+            <Route path='/checkout'>
+              <Header/>
+              <CheckOut/>
+              <Footer />
+            </Route>
+            <Route path='/payment'>
+              <Header/>
+              <Payment />
+              <Footer />
+            </Route>
+            <Route path='/'>
+              <Header/>
+              <Home />
+              <Footer />
+            </Route>
+          </Switch>
+        </div>
+    </Router>
   );
 }
 

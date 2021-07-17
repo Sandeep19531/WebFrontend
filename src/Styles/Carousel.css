@@ -1,0 +1,17 @@
+.rec.rec-arrow{
+    background-color: orange;
+    color: white;
+}
+
+.rec.rec-arrow:disabled {
+    visibility: hidden;
+} 
+
+.rec-carousel-item:focus {
+    outline: none;
+    box-shadow: inset 0 0 1px 1px lightgrey;
+}
+
+.rec-carousel-button {
+    width: 1.95vw;
+}

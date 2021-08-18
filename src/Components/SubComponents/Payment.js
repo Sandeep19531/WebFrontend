@@ -2,12 +2,12 @@ import React from 'react'
 import { PaymentContainer, PaymentInfo, PaymentSection,
          PaymentTitle, PaymentAddress, PaymentItems,
             PaymentDetails } from '../../Styles/PaymentStyles';
-import { useStateValue } from '../../StateProvider';
 import CheckOutProduct from './CheckOutProduct';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function Payment() {
-    const [{basket,user},dispatch] = useStateValue();
+    const {basket,user} = useSelector(state => state.Basket)
     return (
         <PaymentContainer>
             <PaymentInfo>

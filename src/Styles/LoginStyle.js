@@ -38,6 +38,12 @@ const LoginInfo = styled.div`
             background-color: white;
             width: 98%;
         }
+        >select{
+            height: 4.16vh;
+            margin-bottom: 1.38vh;
+            background-color: white;
+            width: 98%;
+        }
     }
     >p{
         font-size: 0.78vw;
@@ -68,6 +74,9 @@ const SignUpBtn = styled.button`
     margin-top: 1.38vh;
     border-color: darkgray;
     font-weight: 500;
+    :hover{
+        cursor: pointer;
+    }
 `;
 
 export {

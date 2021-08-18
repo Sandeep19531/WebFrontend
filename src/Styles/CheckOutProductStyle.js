@@ -4,24 +4,30 @@ const CheckOutContainer = styled.div`
     display: flex;
     margin-top:  2.77vh;
     margin-bottom: 2.77vh;
+    background-color: #fcf2eb;
 `;
 const ProductImage = styled.img`
     width: 11.7vw;
-    height: 25vh;
-    object-fit: contain;
+    height: auto;
+    object-fit: fill;
     position: relative;
-    top: -2.77vh;
 `;
 const Productinfo = styled.div`
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    width: 100%;
     padding-left: 1.3vw;
+    >div{
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+    }
 `;
 const ProductTitle = styled.p`
     font-size: 1.17vw;
     font-weight: 800;
 `;
-const ProductPrice = styled.p``;
+const ProductPrice = styled.div``;
 const ProductRating = styled.div`
     display: flex;
 `;
@@ -42,6 +48,12 @@ const RemoveCheckOut = styled.button`
     }
 `;
 
+const Quantity = styled.div`
+    font-weight: 700;
+`;
+const Bid = styled(Quantity)``;
+const Location = styled(Quantity)``;
+
 
 export {
     ProductImage,
@@ -51,4 +63,7 @@ export {
     ProductRating,
     RemoveCheckOut,
     CheckOutContainer,
+    Quantity,
+    Bid,
+    Location,
 }

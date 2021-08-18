@@ -19,7 +19,6 @@ const HomeContainer = styled.div`
         mask-repeat: repeat-x;
         mask-repeat: repeat-y;
     } */
-    margin-top: 7vh;
     margin-bottom: 7vh;
 `;
 const HomeRow = styled.div`

@@ -1,13 +1,14 @@
 import React from 'react';
 import CurrencyFormat from 'react-currency-format';
-import { useStateValue } from '../../StateProvider';
 import { SubtotalContainer, SubtotalGift, CheckOutBtn } from '../../Styles/SubtotalStyle';
-import {getBasketTotal} from '../../reducer';
+import {getBasketTotal} from '../../Redux/Reducers/BasketReducer';
 import {useHistory} from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function SubTotal() {
     const history = useHistory();
-    const [{basket},dispatch] = useStateValue();
+    const {basket} = useSelector(state => state.Basket);
+    console.log(basket);
     //todo Correct CurrencyFormat
     return (
         <SubtotalContainer>

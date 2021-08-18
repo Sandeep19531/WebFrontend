@@ -1,38 +1,49 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { LoginContainer,LoginInfo,LogoImage,SignInBtn, SignUpBtn } from '../Styles/LoginStyle';
 import Logo from '../Logo/Bg_free_logo.png';
-import { auth } from '../firebase';
-import ParticleBg from 'particles-bg';
 import ParticlesBg from 'particles-bg';
+import { signin } from '../Redux/Actions/userAction';
 
 function Login() {
     const history = useHistory();
+    const dispatch = useDispatch();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const {userInfo,loading, error} = useSelector(state => state.User);
 
     const signIn = e =>{
         e.preventDefault();
-        auth
-            .signInWithEmailAndPassword(email,password)
-            .then(auth=>{
-                history.push('/')
-            })
-            .catch(err => alert(err.message));
+        dispatch(signin(email,password));
+        if(userInfo){
+            history.push('/');
+        }
     }
+
+    const notifyError = ()=> toast.error('Invalid email or password', {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
 
     const register = e =>{
         e.preventDefault();
-        auth
-            .createUserWithEmailAndPassword(email,password)
-            .then((auth)=>{
-                if(auth){
-                    history.push('/')
-                }
-            })
-            .catch(err => alert(err.message))
+        history.push('/register');
     }
+
+    useEffect(() => {
+        if(error){
+            notifyError();
+        }
+    }, [error])
 
     return (
         <LoginContainer>
@@ -54,6 +65,7 @@ function Login() {
                 </p>
                 <SignUpBtn onClick={register} >Sign Up</SignUpBtn>
             </LoginInfo>
+            <ToastContainer />
             <ParticlesBg type="circle" bg={true} />
         </LoginContainer>
         

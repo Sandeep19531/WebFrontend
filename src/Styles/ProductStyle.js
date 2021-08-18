@@ -7,7 +7,7 @@ const ProductContainer = styled.div`
     z-index: 1;
     /* justify-content: flex-end; */
     margin: 0.65vw;
-    width: 100%;
+    width: 45vh;
     /* min-height: 25rem; */
     object-fit:contain;
     border-radius: 0.65vw;
@@ -17,15 +17,22 @@ const ProductTitle = styled.div`
     display: -webkit-box;
     -webkit-box-orient:vertical;
     -webkit-line-clamp:3;
-    font-size: 3.3vw;
-    height: 13.85vh;
+    font-size: 40px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+    display: flex;
+    min-height: 13.85vh;
+    max-height: fit-content;
     color: white;
+    font-weight: 600;
     background-size : 100% 100%;
     background-repeat: no-repeat;
     -moz-border-radius: 0.65vw;
     -webkit-border-radius: 0.65vw 0.65vw 0 0;
     >p{
-        padding: 1.3vw;
+        padding-left: 1.3vw;
+        padding-top: 1.3vw;
     }
 `;
 const ProductInfo = styled.div`
@@ -47,7 +54,6 @@ const AddtoBasket = styled.button`
     background-color: #2054e3;
     color: white;
     border: 0.06vw solid;
-    margin-top: 1.38vh;
     border-color: #1f05b3 #1e089c #160480;
     /* max-width: 9.76vw; */
     min-width: 50%;
@@ -61,6 +67,9 @@ const AddtoBasket = styled.button`
     font-weight: 700;
     height: 80%;
     white-space: nowrap;
+    margin-top:2.78vh;
+    display: flex;
+    justify-content: center;
     :hover{
         background-color: white;
         color: #2054e3;
@@ -87,7 +96,15 @@ const BidDiv = styled.div`
     justify-content: center;
     align-items: center;
     padding: 1.38vh 0.65vw;
-    height: 5.5vh
+    height: fit-content;
+    >form{
+        display: flex;
+        flex-direction: column;
+        font-size: 1.17vw;
+        >input{
+            width: 90%;
+        }
+    }
 `;
 
 export{

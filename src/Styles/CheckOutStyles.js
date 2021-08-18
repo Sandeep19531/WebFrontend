@@ -7,6 +7,7 @@ const CheckOutContainer = styled.div`
     padding: 1.3vw;
 `;
 const CheckOutLeft = styled.div`
+    flex: 0.6;
     >h2{
         margin-right: 0.65vw;
         padding: 0.65vw;

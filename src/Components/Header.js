@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
+
 import {HeaderContainer, HeaderSearch, HeaderNav,
      NavContent, NavLower, NavUpper, ShopBasket,
-    BasketCount, Logo, HeaderLogo} from '../Styles/HeaderStyle';
+    BasketCount, Logo, HeaderLogo, SubHeader, HeaderDiv, SubNavContent, SubNavLower} from '../Styles/HeaderStyle';
 import MandiLogo from '../Logo/Bg_free_logo.png';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import { useStateValue } from '../StateProvider';
-import { auth } from '../firebase';
+// import { useStateValue } from '../StateProvider';
 import { Badge } from '@material-ui/core';
 import { withStyles } from '@material-ui/styles/index';
+import { signin, signOut } from '../Redux/Actions/userAction';
+import { deleteWord, setSearchValue, setWord } from '../Redux/Reducers/search';
+import CloseIcon from '@material-ui/icons/Close';
 
 const StyledBadge = withStyles((theme) => ({
     badge: {
@@ -21,7 +25,12 @@ const StyledBadge = withStyles((theme) => ({
 }))(Badge);
 
 function Header() {
-    const [{basket,user},dispatch] = useStateValue();
+    // const [{basket,user},dispatch] = useStateValue();
+    const {basket} = useSelector(state => state.Basket);
+    const {userInfo} = useSelector(state => state.User);
+    const {word, searchValue} = useSelector(state => state.Search);
+   
+    const dispatch = useDispatch();
     const scrollToTop=()=> {
         window.scrollTo({
           top: 0,
@@ -29,29 +38,47 @@ function Header() {
         });
       }
     const handleSignIn = ()=>{
-        if(user){
-            auth.signOut();
+        if(userInfo){
+            dispatch(signOut());
         }
     }
+    const HandleChange = (e)=>{
+        dispatch(setWord(e.target.value));
+    }
+    const SubmitSearch = ()=>{
+        dispatch(setSearchValue(word));
+    }
+
+    const handleClose = ()=>{
+        dispatch(deleteWord());
+    }
+
+    useEffect(() => {
+        console.log('Search Value is >>>',searchValue);
+    }, [searchValue]);
+
     return (
-        <HeaderContainer>
+        <HeaderDiv>
+            <HeaderContainer>
             <Link to="/">
                 <HeaderLogo>
                     <img src={MandiLogo} alt='Logo' onClick={scrollToTop}/>
                 </HeaderLogo>
             </Link>
             <HeaderSearch>
-                <input type="text" />
-                <SearchIcon/>
+                <input type="text" value={word} onChange={HandleChange} placeholder="Search Here" />
+                {
+                    searchValue === '' ? <SearchIcon onClick={SubmitSearch} /> : <CloseIcon onClick={handleClose} />
+                }
             </HeaderSearch>
             <HeaderNav>
-                <Link to={!user && "/login"}>
+                <Link to={!userInfo && "/login"} style={{textDecoration: "none"}} >
                     <NavContent onClick={handleSignIn}>
                         <NavUpper>
-                            Welcome {!user? 'Guest': user.email}
+                            Welcome {!userInfo? 'Guest': userInfo?.name}
                         </NavUpper>
                         <NavLower>
-                            {user ? 'SignOut': 'SignIn'}
+                            {userInfo ? 'SignOut': 'SignIn'}
                         </NavLower>
                     </NavContent>
                 </Link>
@@ -73,13 +100,35 @@ function Header() {
                                         </BasketCount>
                                     </NavLower> */}
                             <StyledBadge badgeContent={basket?.length} color="secondary" >
-                                <ShoppingCartIcon style={{ fontSize: 26 }} />
+                                <ShoppingCartIcon style={{ fontSize: "1.6vw" }} />
                             </StyledBadge>
                         </ShopBasket>
                     </NavContent>
                 </Link>
             </HeaderNav>
         </HeaderContainer>
+        <SubHeader>
+            <HeaderNav>
+                <SubNavContent>
+                    <Link to={'/sell'} style={{textDecoration: "none"}}>
+                    <SubNavLower>
+                        Sell
+                    </SubNavLower>
+                    </Link>
+                    <Link to={'/soldItems'} style={{textDecoration: "none"}}>
+                    <SubNavLower>
+                        Sold Items
+                    </SubNavLower>
+                    </Link>
+                    <Link to={'/market'} style={{textDecoration: "none"}}>
+                    <SubNavLower>
+                        Market
+                    </SubNavLower>
+                    </Link>
+                </SubNavContent>
+            </HeaderNav>
+        </SubHeader>
+        </HeaderDiv>
     )
 }
 

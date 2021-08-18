@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+const HeaderDiv = styled.div`
+    position: sticky;
+    z-index: 100;
+`;
+
 const HeaderContainer = styled.div`
     height: 10vh;
     display: flex;
@@ -10,7 +15,7 @@ const HeaderContainer = styled.div`
     position: sticky;
     top: 0;
     z-index:100;
-    justify-content: space-between;
+    justify-content: flex-end;
 `;
 
 const HeaderLogo = styled.div`
@@ -33,8 +38,8 @@ const Logo = styled.img`
 `;
 const HeaderSearch = styled.div`
     display: flex;
-    flex:1;
-    align-items: center;
+    flex: 1;
+    align-items: flex-end;
     border-radius: 1.56vw;
     margin-right: 0.65vw;
     > .MuiSvgIcon-root{
@@ -58,20 +63,30 @@ const HeaderSearch = styled.div`
 `;
 const HeaderNav = styled.div`
     display: flex;
-    flex: 0.3;
+    flex: 0.2;
+    margin-right: 0.65vw;
+    justify-content: flex-end;
+    text-decoration: none;
+    flex-direction: row;
 `;
 const NavContent = styled.div`
     color: white;
+    margin-right: 0.8vw;
     display: flex;
     flex-direction: column;
-    margin-right: 0.65vw;
+    justify-content: center;
+    align-items: center;
 `;
 const NavUpper = styled.span`
     font-size: 0.65vw;
+    align-items: center;
+    justify-content: center;
 `;
 const NavLower = styled.span`
     font-size: 0.9vw;
     font-weight: 600;
+    align-items: center;
+    justify-content: center;
 `;
 const ShopBasket = styled.div`
     align-items: center;
@@ -85,7 +100,48 @@ const BasketCount = styled.div`
     margin-right: 0.65vw;
 `;
 
+const SubHeader = styled.div`
+    height: fit-content;
+    display: flex;
+    flex: 1;
+    width: 100%;
+    align-items: center;
+    background-color:#f0965d;
+    position: sticky;
+    top: 10vh;
+    z-index:50;
+    justify-content: flex-end;
+`;
+
+const SubHeaderNav = styled(HeaderNav)`
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    text-decoration: none;
+`;
+
+const SubNavContent = styled(NavContent)`
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+`;
+
+const SubNavLower = styled(NavLower)`
+    display: flex;
+    margin-right: 1vw;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+`;
+
 export {HeaderContainer, HeaderSearch, HeaderNav,
          NavContent,NavUpper,NavLower,
             ShopBasket,BasketCount, Logo, 
-        HeaderLogo };
+        HeaderLogo, SubHeader, HeaderDiv, SubHeaderNav, SubNavContent, SubNavLower };

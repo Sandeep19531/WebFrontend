@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { AddtoBasket } from "./ProductStyle";
 
 const PaymentContainer = styled.div`
     background-color: white;
@@ -30,13 +31,40 @@ const PaymentTitle = styled.div`
 
 const PaymentAddress = styled.div`
     flex: 0.8;
+    >input{
+        width: 50vw;
+        padding: 2vh;
+    }
 `;
 
 const PaymentItems = styled.div`
     flex: 0.8;
 `;
 
-const PaymentDetails = styled.div``;
+const PaymentDetails = styled.div`
+    flex: 0.8;
+    display: flex;
+`;
+
+const CheckOutSection =  styled.div`
+    flex: 0.8;
+    display: flex;
+    >div{
+        margin-right: 20vw;
+    }
+`;
+
+const CheckOutButton = styled.button`
+    min-width: 20vw;
+    min-height: 5vh;
+    width: 100%;
+    background-color: #eb5b34;
+    color: white;
+    :hover{
+        background-color:#d9260b;
+    }
+    cursor: pointer;
+`;
 
 export {
     PaymentContainer,
@@ -46,4 +74,6 @@ export {
     PaymentAddress,
     PaymentItems,
     PaymentDetails,
+    CheckOutButton,
+    CheckOutSection,
 }

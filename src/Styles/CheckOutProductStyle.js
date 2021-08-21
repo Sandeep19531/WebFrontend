@@ -5,6 +5,9 @@ const CheckOutContainer = styled.div`
     margin-top:  2.77vh;
     margin-bottom: 2.77vh;
     background-color: #fcf2eb;
+    >img{
+        margin-right: 2vw;
+    }
 `;
 const ProductImage = styled.img`
     width: 11.7vw;
@@ -14,13 +17,15 @@ const ProductImage = styled.img`
 `;
 const Productinfo = styled.div`
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
+    align-items: center;
     width: 100%;
-    padding-left: 1.3vw;
+    /* padding-left: 1.3vw; */
     >div{
         display: flex;
         flex-direction: column;
-        margin: auto;
+        /* margin: auto; */
+        margin-right: 10vw;
     }
 `;
 const ProductTitle = styled.p`

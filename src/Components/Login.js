@@ -52,12 +52,12 @@ function Login() {
             </Link>
             <LoginInfo>
                 <h1>Sign In</h1>
-                <form>
+                <form onSubmit={signIn} >
                     <h5>E-mail</h5>
-                    <input type="email" value={email} onChange={e=> setEmail(e.target.value)} />
+                    <input type="email" name='email' value={email} onChange={e=> setEmail(e.target.value)} required />
                     <h5>Password</h5>
-                    <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
-                    <SignInBtn type='submit' onClick={signIn} >Sign In</SignInBtn>
+                    <input type="password" name='password' value={password} onChange={e => setPassword(e.target.value)} required />
+                    <SignInBtn type='submit' >Sign In</SignInBtn>
                 </form>
                 <p>
                     By Signing-in you agree to Mandi's terms and conditions.

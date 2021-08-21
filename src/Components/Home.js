@@ -62,13 +62,11 @@ function Home() {
     function isValid(val){
         if(searchValue === ''){
             return true;
-        }else if(val.subCategory.toLowerCase().includes(searchValue.toLowerCase()) ||  val.city.toLowerCase().includes(searchValue.toLowerCase()) ){
+        }else if(val?.subCategory?.toLowerCase().includes(searchValue.toLowerCase()) ||  val?.city?.toLowerCase().includes(searchValue.toLowerCase()) ){
             return true;
         }
         return false;
     }
-
-    console.log(Data);
 
     return (
         <HomeSpace>
@@ -86,7 +84,7 @@ function Home() {
                         <HeadShake>
                         <HomeRow >
                             {/* Data size is compared for conditional render */}
-                            <Carousel breakPoints={breakPoints} itemPadding={[8,8,8]} pagination={false} showArrows={false}>
+                            <Carousel breakPoints={breakPoints} itemPadding={[8,8,8]} pagination={false} showArrows={false} >
                                 {Data?.Cereals?.filter(isValid).map(product=>(
                                     <Product
                                         id={product.id} 

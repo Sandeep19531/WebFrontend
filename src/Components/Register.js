@@ -65,15 +65,15 @@ function Register() {
                 <h1>New User</h1>
                 <form onSubmit={Register}>
                     <h5>Name</h5>
-                    <input type="text" value={name} onChange={e=> setName(e.target.value)} />
+                    <input type="text" name='name' value={name} onChange={e=> setName(e.target.value)} required />
                     <h5>Age</h5>
-                    <input type="Number" value={age} onChange={e=> setAge(e.target.value)} min="18" max="100" />
+                    <input type="Number" name='age' value={age} onChange={e=> setAge(e.target.value)} min="18" max="100" required />
                     <h5>E-mail</h5>
-                    <input type="email" value={email} onChange={e=> setEmail(e.target.value)} />
+                    <input type="email" name='email' value={email} onChange={e=> setEmail(e.target.value)} required />
                     <h5>Password</h5>
-                    <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
+                    <input type="password" name='password' value={password} onChange={e => setPassword(e.target.value)} required />
                     <h5>Confirm Password</h5>
-                    <input type="password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} />
+                    <input type="password" name='confirmPasword' value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} required />
                     <SignInBtn type='submit' >Register</SignInBtn>
                 </form>
                 <p>

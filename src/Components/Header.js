@@ -82,14 +82,16 @@ function Header() {
                         </NavLower>
                     </NavContent>
                 </Link>
-                <NavContent>
-                    <NavUpper>
-                        Returns
-                    </NavUpper>
-                    <NavLower>
-                        & Orders
-                    </NavLower>
-                </NavContent>
+                <Link to="/orderhistory">
+                    <NavContent>
+                        <NavUpper>
+                            Returns
+                        </NavUpper>
+                        <NavLower>
+                            & Orders
+                        </NavLower>
+                    </NavContent>
+                </Link>
                 <Link to="/checkout">
                     <NavContent>
                         <ShopBasket onClick={scrollToTop}>

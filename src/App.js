@@ -12,6 +12,7 @@ import Sell from "./Components/Sell";
 import Error from "./Components/Error";
 import YoungAdult from "./Ads/YoungAdult";
 import Market from "./Components/Market";
+import OrderHistory from "./Components/OrderHistory";
 
 
 function App() {
@@ -81,6 +82,11 @@ function App() {
             <Route path='/market' >
               <Header />
               <Market />
+              <Footer />
+            </Route>
+            <Route path="/orderhistory">
+              <Header />
+              <OrderHistory />
               <Footer />
             </Route>
             <Route path='/'>

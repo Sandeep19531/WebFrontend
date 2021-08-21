@@ -10,7 +10,7 @@ import WhiteAd from '../Logo/YoungAds/WhiteAd.jpg';
 function YoungAdult() {
     return (
         <AdContainer>
-            <Carousel pagination={false} showArrows={false} autoPlay={true} infiniteLoop={true} className="Carousel" >
+            <Carousel pagination={false} showArrows={false} autoPlay={true} infiniteLoop={true} className="Carousel" showThumbs={false} >
                 <AdImg src={WhiteAd} alt="WhiteAd"/>
                 <AdImg src={BlueCar} alt="BlueCar"/>
                 <AdImg src={RedAd} alt="RedAd"/>

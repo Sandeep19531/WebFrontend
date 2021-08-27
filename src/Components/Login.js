@@ -54,9 +54,9 @@ function Login() {
                 <h1>Sign In</h1>
                 <form onSubmit={signIn} >
                     <h5>E-mail</h5>
-                    <input type="email" name='email' value={email} onChange={e=> setEmail(e.target.value)} required />
+                    <input type="email" name='email' value={email} onChange={e=> setEmail(e.target.value)} required autoComplete="off" autoCorrect="off" />
                     <h5>Password</h5>
-                    <input type="password" name='password' value={password} onChange={e => setPassword(e.target.value)} required />
+                    <input type="password" name='password' value={password} onChange={e => setPassword(e.target.value)} required autoComplete="off" autoCorrect="off" />
                     <SignInBtn type='submit' >Sign In</SignInBtn>
                 </form>
                 <p>

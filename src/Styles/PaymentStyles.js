@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { AddtoBasket } from "./ProductStyle";
 
 const PaymentContainer = styled.div`
     background-color: white;

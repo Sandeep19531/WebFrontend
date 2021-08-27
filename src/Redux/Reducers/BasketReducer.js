@@ -1,4 +1,4 @@
-import { ADD_TO_BASKET, REMOVE_FROM_BASKET } from "../Constants/basketConstants";
+import { ADD_TO_BASKET, DELETE_BASKET, REMOVE_FROM_BASKET } from "../Constants/basketConstants";
 
 //*initalState
 const basketState = {
@@ -31,6 +31,11 @@ const basketReducer = (state=basketState, action)=>{
                 ...state,
                 basket: newBasket,
             }
+        case DELETE_BASKET:
+            return {
+                ...state,
+                basket: [],
+            };
         default:
             return state;
     }

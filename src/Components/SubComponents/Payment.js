@@ -5,17 +5,19 @@ import { PaymentContainer, PaymentInfo, PaymentSection,
             CheckOutButton,
             CheckOutSection} from '../../Styles/PaymentStyles';
 import CheckOutProduct from './CheckOutProduct';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBasketTotal } from '../../Redux/Reducers/BasketReducer';
 import { CardInput } from '../../Styles/CreditCardStyles';
 import Cards from 'react-credit-cards';
 import 'react-credit-cards/es/styles-compiled.css';
 import { update } from '../../Redux/Actions/userAction';
+import { deletebasket } from '../../Redux/Actions/basketAction';
 
 function Payment() {
     const {basket,user} = useSelector(state => state.Basket);
     const {userInfo,loading, error} = useSelector(state => state.User);
+    const history = useHistory();
     const [Address, setAddress] = useState('');
     const [number, setNumber] = useState('');
     const [name, setName] = useState('');
@@ -30,8 +32,11 @@ function Payment() {
             address: Address,
             card_number: number,
             basket: basket,
-            bid: getBasketTotal(basket)
+            bid: getBasketTotal(basket),
+            date: new Date()
         }));
+        dispatch(deletebasket());
+        history.push('/');
         // if(userInfo){
         //     history.push('/');
         // }

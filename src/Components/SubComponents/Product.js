@@ -1,10 +1,43 @@
 import React, { useState } from 'react';
 import {ProductContainer, ProductPrice, ProductInfo,
-        ProductRating, AddtoBasket, ProductImage,
-    ImageContainer, ProductTitle, ProductGrade, 
+        ProductRating, AddtoBasket, ProductTitle, ProductGrade, 
     ProductQuantity, ProductLocation, BidDiv} from '../../Styles/ProductStyle';
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Rating from '@material-ui/lab/Rating';
 import store from '../../Redux/store';
+import styled from 'styled-components';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+
+const Notification = ({ closeToast, toastProps, title, quantity, bid, location })=>{
+    return (
+        <NotificationDiv>
+            <div>
+                <ShoppingCartIcon />
+            </div>
+            <div>
+                <strong>
+                    <span>Item:</span>
+                     {title}
+                </strong>
+                <strong>
+                    <span>Quantity:</span>
+                    {quantity}
+                </strong>
+                <strong>
+                    <span>Bid:</span>
+                    {bid}
+                </strong>
+                <strong>
+                    <span>Destination:</span>
+                    {location}
+                </strong>
+            </div>
+        </NotificationDiv>
+    )
+}
+
+toast.configure();
 
 function Product({id,title,image,price,rating,quantity,city,grade}) {
 
@@ -28,6 +61,12 @@ function Product({id,title,image,price,rating,quantity,city,grade}) {
                 location: location
             },
         });
+        toast(<Notification title={title} quantity={quantity} bid={amount} location={location} />,{
+            closeOnClick: false,
+            position: "bottom-right",
+        });
+        setAmount('');
+        setLocation('');
     };
 
     const handleSubmit = (e) =>{
@@ -137,3 +176,40 @@ function Product({id,title,image,price,rating,quantity,city,grade}) {
 }
 
 export default Product;
+
+const NotificationDiv = styled.div`
+    display: flex;
+    background-color: #fc6f03;
+    min-width: 15vw;
+    width: fit-content;
+    /* align-items: center;
+    justify-content: center; */
+    color: black;
+    padding: 1vh;
+    >div:first-of-type{
+        align-items: center;
+        justify-content: center;
+        color: white;
+        margin: 1vw;
+        > .MuiSvgIcon-root{
+            width: 2vw;
+        }
+    }
+    >div{
+        color: #ffe8d6;
+        display: flex;
+        flex-direction: column;
+        >strong{
+            >span{
+                color: black;
+                margin-right: 0.5vw;
+            }
+        }
+    }
+    :hover{
+        background-color: white;
+        >div{
+            color: #fc6f03;
+        }
+    }
+`;

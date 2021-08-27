@@ -82,7 +82,7 @@ function Header() {
                         </NavLower>
                     </NavContent>
                 </Link>
-                <Link to="/orderhistory">
+                <Link to="/orderhistory" style={{textDecoration: "none"}} >
                     <NavContent>
                         <NavUpper>
                             Returns

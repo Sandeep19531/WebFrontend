@@ -1,9 +1,8 @@
-import { parse } from 'dotenv';
 import React from 'react'
 import { useSelector } from 'react-redux';
 import { MarketItems } from '../Styles/Market';
 import Error from './Error';
-import { CerealImage } from './ImageFunction';
+import { CerealImage, FruitImage, VegetablesImg, SeedPlantsImg } from './ImageFunction';
 import Loading from './Loading';
 import Product from './SubComponents/Product';
 
@@ -12,16 +11,15 @@ function Market() {
     const {userInfo} = useSelector(state => state.User);
     const Data = data;
     function isAuthor(unit){
-        if(unit.seller_id){
+        if(unit?.seller_id){
             // console.log(unit);
-            // console.log((unit.seller_id === userInfo._id))
-            return (unit.seller_id === userInfo._id);
+            console.log((unit?.seller_id + userInfo?._id))
+            return (unit?.seller_id === userInfo?._id);
             // return true;
-        }else{
-            return false;
         }
+        return false;
     }
-    console.log( typeof Data?.SeedPlamts?.filter(unit =>isAuthor(unit)));
+    console.log( Data?.SeedPlants?.filter(unit =>isAuthor(unit)));
     return (
         <div>
             { loading ? <Loading/> : error ? <Error /> : (
@@ -32,7 +30,7 @@ function Market() {
                                             id={product.id} 
                                             title={product.subCategory}
                                             price={product.price}
-                                            image={CerealImage(product.subCategory)}
+                                            image={FruitImage(product.subCategory)}
                                             rating={product.rating}
                                             grade={product.grade}
                                             quantity={product.quantity}
@@ -46,7 +44,7 @@ function Market() {
                                             id={product.id} 
                                             title={product.subCategory}
                                             price={product.price}
-                                            image={CerealImage(product.subCategory)}
+                                            image={VegetablesImg(product.subCategory)}
                                             rating={product.rating}
                                             grade={product.grade}
                                             quantity={product.quantity}
@@ -55,12 +53,12 @@ function Market() {
                                     ))}
                     </MarketItems>
                     <MarketItems>
-                    {Data?.SeedPlamts?.filter(isAuthor).map(product=>(
+                    {Data?.SeedPlants?.filter(isAuthor).map(product=>(
                                         <Product
                                             id={product.id} 
                                             title={product.subCategory}
                                             price={product.price}
-                                            image={CerealImage(product.subCategory)}
+                                            image={SeedPlantsImg(product.subCategory)}
                                             rating={product.rating}
                                             grade={product.grade}
                                             quantity={product.quantity}

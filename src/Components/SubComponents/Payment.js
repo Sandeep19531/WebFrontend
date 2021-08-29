@@ -15,8 +15,8 @@ import { update } from '../../Redux/Actions/userAction';
 import { deletebasket } from '../../Redux/Actions/basketAction';
 
 function Payment() {
-    const {basket,user} = useSelector(state => state.Basket);
-    const {userInfo,loading, error} = useSelector(state => state.User);
+    const {basket} = useSelector(state => state.Basket);
+    const {userInfo} = useSelector(state => state.User);
     const history = useHistory();
     const [Address, setAddress] = useState('');
     const [number, setNumber] = useState('');
@@ -96,6 +96,8 @@ function Payment() {
                                 cvc={cvc}
                                 focused={focus}
                             />
+                            </div>
+                            <div>
                             <CardInput type='tel' name='number' 
                                 placeholder='Card Number' value={number} 
                                 onChange={e => setNumber(e.target.value)} 

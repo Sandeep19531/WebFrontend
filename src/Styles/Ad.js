@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "./Device";
 
 const AdContainer = styled.div`
     height: 10vh;
@@ -12,6 +13,12 @@ const AdContainer = styled.div`
     }
     margin-bottom: -4vh;
     margin-top: 1vh;
+    @media ${device.mobileL}{
+        >.Carousel{
+            width: 90%;
+        }
+        height: 10vmax;
+    }
 `;
 
 const AdImg = styled.img`

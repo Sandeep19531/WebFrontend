@@ -4,7 +4,6 @@ import {userRegisterReducer, userSigninReducer} from './userReducer';
 import basketReducer from './BasketReducer';
 import { soldListReducer } from "./soldReducer";
 import searchSlice from './search';
-import { orderSlice } from "./Orders";
 
 export default combineReducers({
     Data: productListReducer,
@@ -13,5 +12,4 @@ export default combineReducers({
     UserRegister: userRegisterReducer,
     Sold: soldListReducer,
     Search: searchSlice,
-    Order: orderSlice,
 })

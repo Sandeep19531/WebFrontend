@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "./Device";
 
 const ProductContainer = styled.div`
     display: flex;
@@ -34,6 +35,10 @@ const ProductTitle = styled.div`
         padding-left: 1.3vw;
         padding-top: 1.3vw;
     }
+    @media ${device.mobileL}{
+        font-size: 10vw;
+        align-items: center;
+    }
 `;
 const ProductInfo = styled.div`
     padding: 1.3vw;
@@ -42,6 +47,12 @@ const ProductInfo = styled.div`
     display: flex;
     flex-direction: column;
     font-size: 1.17vw;
+    >div{
+        font-weight: 600;
+    }
+    @media ${device.mobileL}{
+        font-size: 3vw;
+    }
 `;
 const ProductPrice = styled.div`
     margin-top: 0.69vh;
@@ -75,6 +86,10 @@ const AddtoBasket = styled.button`
         color: #2054e3;
         transform: scale(1.1);
     }
+    @media ${device.mobileL}{
+        height: 5vw;
+        font-size: 3vw;
+    }
 `;
 const ImageContainer = styled.div`
     display: flex;
@@ -103,6 +118,14 @@ const BidDiv = styled.div`
         font-size: 1.17vw;
         >input{
             width: 90%;
+        }
+    }
+    @media ${device.mobileL}{
+        >form{
+            >label{
+                font-size: 3vw;
+                font-weight: 600;
+            }
         }
     }
 `;

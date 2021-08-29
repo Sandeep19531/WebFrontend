@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "./Device";
 
 const LoginContainer =  styled.div`
     display: flex;
@@ -6,6 +7,7 @@ const LoginContainer =  styled.div`
     align-items: center;
     height: 100vh;
     background-color: transparent;
+    box-shadow: 0 0.06vw 0.19vw rgba(0,0,0,0.12),0 0.06vw 0.13vw rgba(0,0,0,0.24);
 `;
 const LogoImage = styled.img`
     margin-top: 2.77vh;
@@ -14,6 +16,11 @@ const LogoImage = styled.img`
     width: 6.5vw; 
     margin-right:auto;
     margin-left: auto;
+    @media ${device.mobileL}{
+        width: 20vw;
+        margin-top: 1vmin;
+        margin-bottom: 1vmin;
+    }
 `;
 const LoginInfo = styled.div`
     width: 20vw;
@@ -44,10 +51,31 @@ const LoginInfo = styled.div`
             background-color: white;
             width: 98%;
         }
-    }
-    >p{
+        >p{
         font-size: 0.78vw;
         margin-top: 2vh;
+        }
+    }
+    @media ${device.mobileL}{
+        width: 70vw;
+        height: 70vh;
+        >h1{
+            font-size: 7vw;
+            margin-bottom: 1vmin;
+        }
+        >form{
+            height: 50vh;
+            >input,select{
+                width: 90%;
+            }
+            >h5{
+                margin-bottom: 0.69vmin;
+            }
+            >p{
+                padding: 2vh;
+                font-size: 3vw;
+            }
+        }
     }
 `;
 
@@ -63,6 +91,9 @@ const SignInBtn = styled.button`
     font-weight: 500;
     :hover{
         background-color:#d9260b;
+    }
+    @media ${device.mobileL}{
+        width: 100%;
     }
 `;
 

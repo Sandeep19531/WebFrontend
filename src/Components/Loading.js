@@ -1,5 +1,5 @@
 import React from 'react'
-import { LoadingContainer, LoadingMid } from '../Styles/LoadingStyles';
+import { LoadingContainer } from '../Styles/LoadingStyles';
 import BgImage from '../Logo/Lotus.png';
 import Loader from "react-loader-spinner";
 

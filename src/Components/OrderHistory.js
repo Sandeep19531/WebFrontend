@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { OrderHistoryContainer, OrderInfoContainer } from '../Styles/HistoryStyles';
 import Error from './Error';

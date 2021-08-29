@@ -15,3 +15,9 @@
 .rec-carousel-button {
     width: 1.95vw;
 }
+
+#headerIcon{
+    font-size: large;
+    margin: auto;
+    position: relative;
+}

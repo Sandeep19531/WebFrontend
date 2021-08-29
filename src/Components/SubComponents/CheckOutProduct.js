@@ -37,7 +37,7 @@ function CheckOutProduct({id,image,title,price,rating,grade,quantity,bid,locatio
                 </div>
                 <div>
                 <Quantity>Quantity: {quantity}</Quantity>
-                <Bid>Your bid: {bid}</Bid>
+                <Bid>Your bid: ₹{bid}</Bid>
                 <Location>Your location: {location}</Location>
                 <RemoveCheckOut onClick={RemoveFromBasket} >Remove</RemoveCheckOut>
                 </div>

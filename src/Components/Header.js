@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 
 import {HeaderContainer, HeaderSearch, HeaderNav,
      NavContent, NavLower, NavUpper, ShopBasket,
-    BasketCount, Logo, HeaderLogo, SubHeader, HeaderDiv, SubNavContent, SubNavLower} from '../Styles/HeaderStyle';
+   HeaderLogo, SubHeader, HeaderDiv, SubNavContent, SubNavLower} from '../Styles/HeaderStyle';
 import MandiLogo from '../Logo/Bg_free_logo.png';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-// import { useStateValue } from '../StateProvider';
 import { Badge } from '@material-ui/core';
 import { withStyles } from '@material-ui/styles/index';
-import { signin, signOut } from '../Redux/Actions/userAction';
+import { signOut } from '../Redux/Actions/userAction';
 import { deleteWord, setSearchValue, setWord } from '../Redux/Reducers/search';
 import CloseIcon from '@material-ui/icons/Close';
+import '../Styles/Carousel.css';
 
 const StyledBadge = withStyles((theme) => ({
     badge: {
@@ -85,10 +85,10 @@ function Header() {
                 <Link to="/orderhistory" style={{textDecoration: "none"}} >
                     <NavContent>
                         <NavUpper>
-                            Returns
+                            Your
                         </NavUpper>
                         <NavLower>
-                            & Orders
+                            Orders
                         </NavLower>
                     </NavContent>
                 </Link>
@@ -102,7 +102,7 @@ function Header() {
                                         </BasketCount>
                                     </NavLower> */}
                             <StyledBadge badgeContent={basket?.length} color="secondary" >
-                                <ShoppingCartIcon style={{ fontSize: "1.6vw" }} />
+                                <ShoppingCartIcon id="headerIcon" />
                             </StyledBadge>
                         </ShopBasket>
                     </NavContent>

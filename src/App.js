@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Header from "./Components/Header";
 import Home from "./Components/Home";
 import Footer from "./Components/Footer";
@@ -10,7 +10,6 @@ import colors from 'colors';
 import Register from "./Components/Register";
 import Sell from "./Components/Sell";
 import Error from "./Components/Error";
-import YoungAdult from "./Ads/YoungAdult";
 import Market from "./Components/Market";
 import OrderHistory from "./Components/OrderHistory";
 

@@ -58,12 +58,12 @@ function Login() {
                     <h5>Password</h5>
                     <input type="password" name='password' value={password} onChange={e => setPassword(e.target.value)} required autoComplete="off" autoCorrect="off" />
                     <SignInBtn type='submit' >Sign In</SignInBtn>
-                </form>
-                <p>
+                    <p>
                     By Signing-in you agree to Mandi's terms and conditions.
                     Please read our terms of condition and use here.
-                </p>
-                <SignUpBtn onClick={register} >Sign Up</SignUpBtn>
+                    </p>
+                    <SignUpBtn onClick={register} >Sign Up</SignUpBtn>
+                </form>
             </LoginInfo>
             <ToastContainer />
             <ParticlesBg type="circle" bg={true} />

@@ -1,8 +1,12 @@
 import styled from 'styled-components';
+import { device } from './Device';
 
 const HeaderDiv = styled.div`
     position: sticky;
     z-index: 100;
+    @media ${device.mobileL}{
+        width: 100vw;
+    }
 `;
 
 const HeaderContainer = styled.div`
@@ -23,10 +27,15 @@ const HeaderLogo = styled.div`
     width: 100%;
     height: 100%;
     >img{
-        padding: 20px;
+        padding: 2vw;
         width: auto;
         height: auto;
         max-width: 5.2vw;
+    }
+    @media ${device.mobileL}{
+        >img{
+            max-width: 15vw;
+        }
     }
 `;
 
@@ -35,6 +44,12 @@ const Logo = styled.img`
     width: 5.5vw;
     margin: 1.25vw ;
     padding: 1.6vw;
+    @media ${device.mobileL}{
+        >img{
+            width: 10vw;
+            height: 10vw;
+        }
+    }
 `;
 const HeaderSearch = styled.div`
     display: flex;
@@ -68,6 +83,10 @@ const HeaderNav = styled.div`
     justify-content: flex-end;
     text-decoration: none;
     flex-direction: row;
+    @media ${device.mobileL}{
+        flex: 0.4;
+        justify-content: center;
+    }
 `;
 const NavContent = styled.div`
     color: white;
@@ -76,11 +95,18 @@ const NavContent = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @media ${device.mobileL}{
+        >span{
+            font-size: 1.5vw;
+        }
+    }
 `;
 const NavUpper = styled.span`
     font-size: 0.65vw;
+    display: flex;
     align-items: center;
     justify-content: center;
+    white-space: nowrap;
 `;
 const NavLower = styled.span`
     font-size: 0.9vw;
@@ -92,8 +118,20 @@ const ShopBasket = styled.div`
     align-items: center;
     color: white;
     display: inline-block;
+    justify-content: center;
     overflow: none;
     margin-right: 1vw;
+    @media ${device.mobileL}{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 4vw;
+        .MuiSvgIcon-root{
+            position: relative;
+            top: 1vw;
+            overflow: none;
+        }
+    }
 `;
 const BasketCount = styled.div`
     margin-left: 0.65vw;
@@ -128,6 +166,12 @@ const SubNavContent = styled(NavContent)`
     display: flex;
     flex-direction: row;
     text-decoration: none;
+    @media ${device.mobileL}{
+        width: 30vw;
+        display: flex;
+        justify-content: space-between;
+        /* align-items: flex-end; */
+    }
 `;
 
 const SubNavLower = styled(NavLower)`
@@ -139,6 +183,10 @@ const SubNavLower = styled(NavLower)`
     justify-content: center;
     text-decoration: none;
     color: white;
+    @media ${device.mobileL}{
+        font-size: 2vw;
+
+    }
 `;
 
 export {HeaderContainer, HeaderSearch, HeaderNav,

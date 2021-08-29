@@ -1,5 +1,5 @@
 import React from 'react';
-import {ProductContainer, ProductPrice, ProductInfo,
+import {ProductContainer, ProductPrice,
         ProductRating, ProductTitle, ProductGrade, 
     ProductQuantity, ProductLocation} from '../../Styles/ProductStyle';
 import Rating from '@material-ui/lab/Rating';

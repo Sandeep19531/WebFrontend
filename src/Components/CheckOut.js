@@ -10,11 +10,12 @@ import Fade from 'react-reveal/Fade';
 
 
 function CheckOut() {
-    const {basket,user} = useSelector(state => state.Basket)
+    const {basket} = useSelector(state => state.Basket);
+    const {userInfo} = useSelector(state => state.User);
     return (
         <CheckOutContainer>
             <CheckOutLeft>
-                <h5>Hello 👋, {user?.email}</h5>
+                <h5>Hello 👋, {userInfo?.name}</h5>
                 <img src={CheckOutAd} alt="Banner Ad" />
                 <h2>
                     Your Cart

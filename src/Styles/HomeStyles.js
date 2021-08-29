@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "./Device";
 
 
 const HomeSpace = styled.div`
@@ -45,6 +46,9 @@ const RowTitle = styled.div`
     -webkit-background-clip: text;
     font-weight: 900;
     text-shadow: 2px white; */
+    @media ${device.mobileL}{
+        font-size: 7vw;
+    }
 `;
 
 const RowContent = styled.div`
@@ -55,13 +59,20 @@ const RowContent = styled.div`
     padding-bottom: 6.93vh;
     margin-top: 4vw;
     >strong{
+        display: flex;
         margin-left: 0.33vw;
         padding: 0 2.6vw;
         color: white;
         font-size: 1.17vw;
+        align-items: center;
         > .MuiSvgIcon-root{
             position: relative;
             top:0.7vh;
+        }
+    }
+    @media ${device.mobileL}{
+        >strong{
+            font-size: 3vw;
         }
     }
 `;

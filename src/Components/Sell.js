@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { LoginContainer,LoginInfo,LogoImage,SignInBtn } from '../Styles/LoginStyle';
@@ -23,8 +23,6 @@ function Sell() {
 
     const SellIt = (e) =>{
         e.preventDefault();
-        console.log(`e.preventDefault() executed`);
-        console.log(userInfo);
         dispatch(postData(quantity,price,grade,subCategory,city,rating,userInfo._id));
         console.log(quantity,price,grade,subCategory,city,rating);
         console.log('Data sent to background');

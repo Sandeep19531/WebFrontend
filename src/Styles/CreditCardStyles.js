@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "./Device";
 
 const CardForm = styled.form`
     display: flex;
@@ -16,6 +17,11 @@ const CardInput = styled.input`
     border-radius: 0.25rem;
     transition: border-color 0.15s;
     width: 10vw;
+    @media ${device.mobileL}{
+        width: 80%;
+        padding: 1vmin;
+    }
+    
 `;
 
 export{

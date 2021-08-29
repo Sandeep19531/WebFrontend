@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "./Device";
 
 const FooterContainer = styled.div`
     display: flex;
@@ -20,6 +21,9 @@ const BacktoTop = styled.button`
     border: none;
     :hover{
         background-color:#3d71f5;
+    }
+    @media ${device.mobileL}{
+        font-size: 3vw;
     }
 `;
 const Contact = styled.div`
@@ -68,6 +72,11 @@ const Icon = styled.div`
     }
     position: relative;
     top: 0.28vh;
+    @media ${device.mobileL}{
+        >img{
+            width: 3vw;
+        }
+    }
 `;
 const Btn = styled.a`
     min-width: 6.5vw;
@@ -83,6 +92,13 @@ const Btn = styled.a`
     :hover{
         background-color: white;
         color: black;
+    }
+    @media ${device.mobileL}{
+        min-width: 10vw;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 3vw;
+        padding: 1vw;
     }
 `;
 const GitHubBtn = styled(Btn)`
@@ -114,6 +130,11 @@ const LeftText = styled.div`
         text-align: center;
         font-size: 1.17vw;
     }
+    @media ${device.mobileL}{
+        >p{
+            font-size: 3vw;
+        }
+    }
 `;
 const RightText = styled.div`
     display: flex;
@@ -123,6 +144,11 @@ const RightText = styled.div`
     >p{
         text-align: center;
         font-size: 1.17vw;
+    }
+    @media ${device.mobileL}{
+        >p{
+            font-size: 3vw;
+        }
     }
 `;
 const Image = styled.div`

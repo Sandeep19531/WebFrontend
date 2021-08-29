@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "./Device";
 
 const CheckOutContainer = styled.div`
     display: flex;
@@ -8,12 +9,19 @@ const CheckOutContainer = styled.div`
     >img{
         margin-right: 2vw;
     }
+    @media ${device.mobileL}{
+        width: 100vw;
+        font-size: 3vw;
+    }
 `;
 const ProductImage = styled.img`
     width: 11.7vw;
     height: auto;
     object-fit: fill;
     position: relative;
+    @media ${device.mobileL}{
+        width: 25%;
+    }
 `;
 const Productinfo = styled.div`
     display: flex;
@@ -27,12 +35,22 @@ const Productinfo = styled.div`
         /* margin: auto; */
         margin-right: 10vw;
     }
+    @media ${device.mobileL}{
+        width: 25%;
+    }
 `;
 const ProductTitle = styled.p`
     font-size: 1.17vw;
     font-weight: 800;
+    @media ${device.mobileL}{
+        font-size: 3vw;
+    }
 `;
-const ProductPrice = styled.div``;
+const ProductPrice = styled.div`
+    @media ${device.mobileL}{
+        whitespace: nowrap;
+    }
+`;
 const ProductRating = styled.div`
     display: flex;
 `;
@@ -46,18 +64,27 @@ const RemoveCheckOut = styled.button`
     cursor: pointer;
     border-radius: 0.26vw;
     padding: 0.33vw;
+    display: inline-block;
+    align-items: center;
     :hover{
         background-color: white;
         color: #2054e3;
         transform: scale(1.1);
     }
+    @media ${device.mobileL}{
+        min-width: fit-content;
+        font-size: 3vw;
+    }
 `;
 
 const Quantity = styled.div`
     font-weight: 700;
+    white-space: nowrap;
 `;
 const Bid = styled(Quantity)``;
-const Location = styled(Quantity)``;
+const Location = styled(Quantity)`
+    white-space: normal;
+`;
 
 
 export {

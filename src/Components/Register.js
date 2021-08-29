@@ -17,7 +17,7 @@ function Register() {
     const [age, setAge] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const {userInfo,loading, error} = useSelector(state => state.UserRegister);
+    const {userInfo, error} = useSelector(state => state.UserRegister);
 
     const Register = (e) =>{
         e.preventDefault();

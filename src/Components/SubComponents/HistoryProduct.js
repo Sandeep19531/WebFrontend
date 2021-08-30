@@ -15,7 +15,7 @@ function HistoryProduct({bid,address,cardNumber,basket,date}) {
         { width: 1450, itemsToShow: 4, itemsToScroll: 1, transitionMs: 600 },
         { width: 1750, itemsToShow: 6, itemsToScroll: 1,transitionMs: 600 },
     ];
-    console.log(bid);
+//     console.log(bid);
     return (
         <HistoryContainer>
             <HistoryInfo>

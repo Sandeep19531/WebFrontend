@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 function SubTotal() {
     const history = useHistory();
     const {basket} = useSelector(state => state.Basket);
-    console.log(basket);
+//     console.log(basket);
     //todo Correct CurrencyFormat
     return (
         <SubtotalContainer>

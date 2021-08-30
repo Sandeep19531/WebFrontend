@@ -18,13 +18,13 @@ function Market() {
     function isAuthor(unit){
         if(unit?.seller_id){
             // console.log(unit);
-            console.log((unit?.seller_id + userInfo?._id))
+//             console.log((unit?.seller_id + userInfo?._id))
             return (unit?.seller_id === userInfo?._id);
             // return true;
         }
         return false;
     }
-    console.log( Data?.SeedPlants?.filter(unit =>isAuthor(unit)));
+//     console.log( Data?.SeedPlants?.filter(unit =>isAuthor(unit)));
     return (
         <div>
             { loading ? <Loading/> : error ? <Error /> : (

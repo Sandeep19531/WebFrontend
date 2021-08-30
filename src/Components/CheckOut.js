@@ -5,13 +5,18 @@ import CheckOutAd from "../Ads/CheckoutAd.png";
 import CheckOutProduct from './SubComponents/CheckOutProduct';
 import {useSelector} from 'react-redux';
 import Fade from 'react-reveal/Fade';
+import { useHistory } from 'react-router-dom';
 // import Slide from 'react-reveal/Slide';
 
 
 
 function CheckOut() {
+    const history = useHistory();
     const {basket} = useSelector(state => state.Basket);
     const {userInfo} = useSelector(state => state.User);
+    if(!userInfo){
+        history.push('/login');
+    }
     return (
         <CheckOutContainer>
             <CheckOutLeft>

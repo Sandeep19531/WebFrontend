@@ -1,13 +1,18 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { OrderHistoryContainer, OrderInfoContainer } from '../Styles/HistoryStyles';
 import Error from './Error';
 import Loading from './Loading';
 import HistoryProduct from './SubComponents/HistoryProduct';
 
 function OrderHistory() {
+    const history = useHistory();
     const {loading,error} = useSelector(state => state.User);
     const userInfo = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')): null;
+    if(!userInfo){
+        history.push('/login');
+    }
     return (
         <div>
             

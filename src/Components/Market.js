@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { MarketItems } from '../Styles/Market';
 import Error from './Error';
 import { CerealImage, FruitImage, VegetablesImg, SeedPlantsImg } from './ImageFunction';
@@ -7,8 +8,12 @@ import Loading from './Loading';
 import Product from './SubComponents/Product';
 
 function Market() {
+    const history = useHistory();
     const {loading, error, data} = useSelector(state => state.Data);
     const {userInfo} = useSelector(state => state.User);
+    if(!userInfo){
+        history.push('/login');
+    }
     const Data = data;
     function isAuthor(unit){
         if(unit?.seller_id){

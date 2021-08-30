@@ -1,7 +1,7 @@
 import React from 'react';
 import Carousel from 'react-elastic-carousel';
 import '../../Styles/Carousel.css';
-import OrderProduct from './OrderProduct';
+import Product from './OrderProduct';
 import HistoryImg from '../../Logo/History.jpg';
 import styled from 'styled-components';
 import HistoryBgImg from '../../Logo/HistoryBgImg.jpg';
@@ -26,7 +26,7 @@ function HistoryProduct({bid,address,cardNumber,basket,date}) {
             </HistoryInfo>
             <Carousel breakPoints={breakPoints} pagination={false} showArrows={false} showThumbs={false} autoPlay={true} >
                 {basket.map(product =>(
-                    <OrderProduct
+                    <Product
                         id={product.id} 
                         title={product.title}
                         price={product.price}

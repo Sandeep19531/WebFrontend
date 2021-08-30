@@ -18,8 +18,11 @@ function Sell() {
     const [subCategory, setSubCategory] = useState('');
     const [city, setCity] = useState('');
     const [rating, setRating] = useState('');
-    const {data,loading, error} = useSelector(state => state.Sold);
+    const {data} = useSelector(state => state.Sold);
     const {userInfo} = useSelector(state => state.User);
+    if(!userInfo){
+        history.push('/login');
+    }
 
     const SellIt = (e) =>{
         e.preventDefault();

@@ -41,6 +41,9 @@ function Payment() {
         //     history.push('/');
         // }
     }
+    if(!userInfo){
+        history.push('/login');
+    }
     return (
         <PaymentContainer>
             <PaymentInfo>

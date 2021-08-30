@@ -25,7 +25,7 @@ const fetchProductFail = errMsg =>{
 //*async action
 export const listData = () => async(dispatch) =>{
     dispatch(fetchProductRequest());
-    await axios.get('/api/products')
+    await axios.get('https://kissan-mandi.herokuapp.com/api/products')
         .then(response=>{
             const Data = response.data;
             dispatch(fetchProductSuccess(Data));

@@ -27,7 +27,7 @@ export const postData = (quantity,price,grade,subCategory,city,rating,id) => asy
     // let date = new Date();
     // date = date.substr(0,date.indexof("T"));
     // console.log(date)
-    await axios.post('/api/products/sell',{quantity,price,grade,subCategory,city,rating,id})
+    await axios.post('https://kissan-mandi.herokuapp.com/api/products/sell',{quantity,price,grade,subCategory,city,rating,id})
         .then(response=>{
             const Data = response.data;
             dispatch(fetchUploadSuccess(Data));

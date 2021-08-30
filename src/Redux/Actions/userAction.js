@@ -11,7 +11,7 @@ export const register = (name, age, email,password) => async(dispatch) =>{
         }
     });
     try{
-        const {data} = await axios.post('/api/users/register',{name, age, email,password});
+        const {data} = await axios.post('https://kissan-mandi.herokuapp.com/api/users/register',{name, age, email,password});
         dispatch({
             type: USER_REGISTER_SUCCESS,
             payload: data
@@ -37,7 +37,7 @@ export const update = (id,body) => async(dispatch) =>{
         }
     });
     try{
-        const {data} = await axios.post('/api/users/orderhistory',{id,body});
+        const {data} = await axios.post('https://kissan-mandi.herokuapp.com/api/users/orderhistory',{id,body});
         dispatch({
             type: USER_UPDATE_SUCCESS,
             payload: data
@@ -61,7 +61,7 @@ export const signin = (email,password) => async(dispatch) =>{
         }
     });
     try{
-        const {data} = await axios.post('/api/users/signin',{email,password});
+        const {data} = await axios.post('https://kissan-mandi.herokuapp.com/api/users/signin',{email,password});
         dispatch({
             type: USER_SIGNIN_SUCCESS,
             payload: data

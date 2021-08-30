@@ -53,9 +53,9 @@ function Header() {
         dispatch(deleteWord());
     }
 
-    useEffect(() => {
-        console.log('Search Value is >>>',searchValue);
-    }, [searchValue]);
+//     useEffect(() => {
+//         console.log('Search Value is >>>',searchValue);
+//     }, [searchValue]);
 
     return (
         <HeaderDiv>

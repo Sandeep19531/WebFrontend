@@ -29,10 +29,11 @@ function Register() {
         else{
             dispatch(register(name, age ,email,password));
             console.log('Data sent to background');
-        }
-        if(userInfo){
+            if(userInfo){
             history.push('/');
+            }
         }
+        
     }
 
     const notifyError = ()=> toast.error('Invalid email or password', {
